@@ -26,12 +26,16 @@ HTML5 – Structure
 CSS3 – Styling
 
 JavaScript – Interactivity (wishlist, cart)
+
 🚀 How to Run the Project
 Clone this repository:
+
 git clone https://github.com/priyanshi1014/Evolve-Skin-Web-Technology.git
+
 Open index.html in a browser.
 
 Explore all pages: Home, Cart, Signup, Contact Us, etc.
+
 📌 Future Enhancements
 Backend integration for login/signup
 
