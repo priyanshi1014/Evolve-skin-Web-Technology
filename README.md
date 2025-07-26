@@ -28,7 +28,7 @@ CSS3 – Styling
 JavaScript – Interactivity (wishlist, cart)
 🚀 How to Run the Project
 Clone this repository:
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/priyanshi1014/Evolve-Skin-Web-Technology.git
 Open index.html in a browser.
 
 Explore all pages: Home, Cart, Signup, Contact Us, etc.
