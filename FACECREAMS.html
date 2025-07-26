@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="facewash.css">
+    <link rel="icon" type="image/png" href="photos/logo.png">
+    <title>Evolve Skin</title>
+</head>
+<body>
+    <header>
+        <img src="photos/logo.png" alt="Evolve Skin Logo" width="100px" id="logo">
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    <h3 id="category-heading">Category: Face Cream</h3>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="photos/fc_1.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>Chemist At Play!</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $20.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 1', 20.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product1-details.html'">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fc_2.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>Dot & Key</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $25.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 2', 25.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product2-details.html'">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fc_3.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>Minimalist</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $30.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 3', 30.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product3-details.html'">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fc_4.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>derma co.</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $35.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 4', 35.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product4-details.html'">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fc_5.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>Himalaya</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $40.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 5', 40.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product5-details.html'">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fc_6.jpg" alt="FACECREAM" class="grid-image">
+            <div class="text-box">
+                <h3>Aqualogica</h3>
+                <p>This is just a simple description for our product.</p>
+                <p>Price: $45.00</p>
+                <button class="cart-btn" onclick="addToCart('Product 6', 45.00)">Add to Cart</button>
+                <button class="know-more-btn" onclick="window.location.href='product6-details.html'">Know More</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function addToCart(productName, price) {
+            // Store cart data in localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if the product is already in the cart
+            let product = cart.find(item => item.name === productName);
+            if (product) {
+                product.quantity += 1;
+                product.subtotal = product.quantity * product.price;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1,
+                    subtotal: price
+                });
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            alert(productName + " added to cart!");
+        }
+    </script>
+</body>
+</html>

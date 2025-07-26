@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="icon" type="image/png" href="photos/logo.png">
+    <title>Cart - Evolve Skin</title>
+</head>
+<body>
+    <header>
+        <img src="photos/logo.png" alt="Evolve Skin Logo" width="100px" id="logo">
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    <h1 align="center">Shopping Cart</h1>
+    <div id="cart-container">
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+        <h2 id="total-amount">Total: $0.00</h2>
+    </div>
+    
+    <script>
+        function updateCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItemsContainer = document.getElementById('cart-items');
+            let totalAmount = 0;
+            
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+
+            cart.forEach(item => {
+                totalAmount += item.subtotal;
+
+                cartItemsContainer.innerHTML += `
+                    <tr>
+                        <td><img src="${item.image}" alt="${item.name}" class="cart-product-image"></td>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>
+                            <button onclick="changeQuantity('${item.name}', -1)">-</button>
+                            ${item.quantity}
+                            <button onclick="changeQuantity('${item.name}', 1)">+</button>
+                        </td>
+                        <td>$${item.subtotal.toFixed(2)}</td>
+                        <td><button onclick="removeFromCart('${item.name}')">Remove</button></td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('total-amount').textContent = `Total: $${totalAmount.toFixed(2)}`;
+        }
+
+        function changeQuantity(productName, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let product = cart.find(item => item.name === productName);
+
+            if (product) {
+                product.quantity += change;
+                if (product.quantity <= 0) {
+                    removeFromCart(productName);
+                    return;
+                }
+                product.subtotal = product.quantity * product.price;
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function removeFromCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Initialize the cart on page load
+        updateCart();
+    </script>
+</body>
+</html>

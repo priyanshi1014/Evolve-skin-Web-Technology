@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="facewash.css">
+    <link rel="icon" type="image/png" href="photos/logo.png">
+    <title>Evolve Skin</title>
+</head>
+<body>
+    <header>
+        <img src="photos/logo.png" alt="Evolve Skin Logo" width="100px" id="logo">
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    <h3 id="category-heading">Category: Face Wash</h3>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="photos/fw_1.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3><strong>Chemist at Play</strong></h3>
+                <p>With a potent blend of Salicylic Acid and Cica Extract, this magical potion fights acne-causing villains, banishes excess oil and dirt, and soothes skin inflammation.</p>
+                <button class="cart-btn" onclick="addToCart('Chemist at Play')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Chemist at Play')">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fw_2.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3>Derma Co.</h3>
+                <button class="cart-btn" onclick="addToCart('Derma Co.')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Derma Co.')">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fw_3.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3>Dot and Key</h3>
+                <button class="cart-btn" onclick="addToCart('Dot and Key')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Dot and Key')">Know More</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="photos/fw_4.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3>Minimalist</h3>
+                <button class="cart-btn" onclick="addToCart('Minimalist')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Minimalist')">Know More</button>
+            </div>
+        </div>
+         <div class="grid-item">
+            <img src="photos/fw_5.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3>Cera Ve</h3>
+                <button class="cart-btn" onclick="addToCart('Cera Ve')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Cera Ve')">Know More</button>
+            </div>
+        </div> 
+          <div class="grid-item">
+            <img src="photos/fw_6.jpg" alt="FACEWASH" class="grid-image">
+            <div class="text-box">
+                <h3>Aqualogica</h3>
+                <button class="cart-btn" onclick="addToCart('Aqualogica')">Add to Cart</button>
+                <button class="know-more-btn" onclick="knowMore('Aqualogica')">Know More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(productName) {
+            alert(productName + " added to cart!");
+            // Add more code here to handle the cart functionality
+        }
+
+        function knowMore(productName) {
+            alert("More information about " + productName + " Cleanses face");
+            // Add more code here to navigate to the product details page or show a modal with more information
+        }
+        function addToCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let product = {
+                name: productName,
+                price: 10.00,  // Replace with actual product price
+                quantity: 1,
+                subtotal: 10.00,  // Replace with actual product subtotal
+                image: 'photos/fw_1.jpg' // Replace with the correct image path
+            };
+            
+            let existingProduct = cart.find(item => item.name === productName);
+            
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+                existingProduct.subtotal = existingProduct.quantity * existingProduct.price;
+            } else {
+                cart.push(product);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + " added to cart!");
+        }
+    
+        function knowMore(productName) {
+            alert("More information about " + productName);
+        }
+    </script>
+    
+</body>
+</html>

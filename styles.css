@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+
+:root{
+    --nav-bar:rgba(243,213,181,0.75);
+    --text-color: #343a40;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Antic Didone", serif;
+    font-weight: 500;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+/* ***************** background style ***************** */
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(222,171,144,0.5),rgba(205,151,119,0.5)),url(modern\ 2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* ***************** navigation bar style ***************** */
+header{
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+    background: var(--nav-bar);
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+}
+
+#main-nav{
+    display: flex;
+    column-gap: 40px;
+    padding: 24px;
+}
+
+#main-nav a{
+    font-size: 22px;
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    margin: auto;
+}
+
+#main-nav a:hover{
+    text-decoration: 2px underline #c38e70;
+    transition-duration: 0.5s;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+/* ***************** category style ***************** */
+.category{
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    padding: 15px;
+    background-color: #ffedd8;
+}
+
+.category h1{
+    text-align: center;
+    padding: 5px;
+    color: var(--text-color);
+    letter-spacing: 4px;
+    font-weight: 900;
+}
+
+.category-content{
+    padding: 15px 100px;
+    margin: 0;
+}
+
+.category-content table{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+}
+
+.category-content tr td{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.item-container {
+    display: flex;
+    align-items: center;
+    gap: 14%; /* Adjust spacing between image and text as needed */
+    font-weight: 500;
+    font-size: 23px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: rgba(243,213,181,0.45);
+}
+
+.item-container p:nth-child(even){
+    padding-right: 22px;
+}
+
+.item-container p:nth-child(odd){
+    padding-left: 22px;
+}
+
+.category-heading{
+    letter-spacing: 8px;
+    font-weight: 800;
+    font-family: "Bodoni", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.item-container:hover{
+    transform: scale(0.95);
+    transition-duration: 0.3s;
+}
+
+.category-items:hover{
+    transition-duration: 0.5s;
+}
+
+.category-image{
+    width: 40%;
+    max-width: 350px;
+    height: 50%;
+    max-height: 400px;
+    border-radius: 16px;
+    margin: 0;
+    padding: 5px; 
+}
+
+/* ***************** category page style ***************** */
+#category-heading{
+    padding: 15px;
+    padding-bottom: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: auto;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Defines 3 equal columns */
+    /* grid-template-rows: repeat(3, auto); Defines 3 rows */
+    width: 100%;
+    gap: 40px;
+    padding: 30px;
+    margin: 0;
+    justify-content: center;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.grid-image {
+    width: 100%;
+    /* max-width: 450px; */
+    height: 500px;
+    /* max-height: 500px; */
+}
+  
+/* Container for photos */
+.photo-container {
+    display: flex;
+    justify-content: space-between; /* Adjust space between images */
+    align-items: center;
+    padding: 20px;
+}
+
+/* Each photo will take up a percentage of the container */
+.responsive-photo {
+    width: 32%; /* 32% for three images with some space between them */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 10px; /* Optional: round the corners */
+    transition: transform 0.3s ease-in-out; /* Optional: add a hover effect */
+}
+
+/* On hover, photos can scale up slightly */
+.responsive-photo:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .photo-container {
+        flex-direction: column;
+    }
+    .responsive-photo {
+        width: 90%; /* Adjust width for smaller screens */
+        margin-bottom: 15px; /* Add some margin between images */
+    }
+}
+
+.grid-item .text-box {
+    font-size: 20px;
+    background:rgba(243,213,181,0.75) ; 
+    width: 100%; 
+    padding: 20px;
+    color: #000;
+    font-weight: 900;
+    text-align: center;
+} 
+
+.text-box h3{
+    margin: 0 0 10px 0;
+} 
+
+/* ***************** footer style ***************** */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Product Table Container */
+.product-table-container {
+    padding: 30px;
+    background-color: #f9f9f9; /* Light background to differentiate the table section */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Product Table */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffedd8; /* Light beige background for the table */
+}
+
+/* Table Headers */
+.product-table th {
+    background-color: #c38e70; /* Darker color for headers */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Table Data Cells */
+.product-table td {
+    padding: 15px;
+    border: 1px solid #ddd; /* Light border around cells */
+    text-align: center;
+    font-size: 16px;
+    color: #343a40; /* Darker text color for readability */
+}
+
+/* Alternate Row Colors */
+.product-table tr:nth-child(even) {
+    background-color: rgba(243,213,181,0.45); /* Light color for alternate rows */
+}
+
+/* Hover Effect */
+.product-table tr:hover {
+    background-color: rgba(195,142,112,0.5); /* Slightly darker hover effect */
+    transition-duration: 0.3s;
+}
+.photo-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px; /* Adjust the gap between the photos */
+    padding: 20px; /* Optional padding around the grid */
+}
+
+.photo-container a {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.responsive-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures the image covers the container */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    transition: transform 0.3s ease; /* Optional: adds a hover effect */
+}
+
+.responsive-photo:hover {
+    transform: scale(1.05); /* Optional: scales the image on hover */
+}
